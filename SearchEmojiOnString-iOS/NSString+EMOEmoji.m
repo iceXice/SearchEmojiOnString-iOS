@@ -106,30 +106,48 @@
      {
          const unichar hs = [substring characterAtIndex:0];
          // surrogate pair
-         if (0xd800 <= hs &&
-             hs <= 0xdbff)
-         {
-             if (substring.length > 1)
-             {
-                 const unichar ls = [substring characterAtIndex:1];
-                 const int uc = ((hs - 0xd800) * 0x400) + (ls - 0xdc00) + 0x10000;
-                 if (0x1d000 <= uc &&
-                     uc <= 0x1f9c0)
-                 {
-                     containsEmoji = YES;
-                 }
-             }
-         }
-         else if (substring.length > 1)
-         {
-             const unichar ls = [substring characterAtIndex:1];
-             if (ls == 0x20e3 ||
-                 ls == 0xfe0f ||
-                 ls == 0xd83c)
-             {
-                 containsEmoji = YES;
-             }
-         }
+        if (0xd800 <= hs && hs <= 0xdbff) {
+            if (substring.length > 1) {
+                const unichar ls = [substring characterAtIndex:1];
+                const int uc = ((hs - 0xd800) * 0x400) + (ls - 0xdc00) + 0x10000;
+                if (0x1d000 <= uc && uc <= 0x1f77f) {
+                    containsEmoji = YES;
+                }
+                if (0x1F600 <= uc && uc <= 0x1F64F) {
+                    containsEmoji = YES;
+                }
+                if (0x1F300 <= uc && uc <= 0x1F5FF) {
+                    containsEmoji = YES;
+                }
+                if (0x1F680 <= uc && uc <= 0x1F6FF) {
+                    containsEmoji = YES;
+                }
+                if (0x2600 <= uc && uc <= 0x26FF) {
+                    containsEmoji = YES;
+                }
+                if (0x2700 <= uc && uc <= 0x27BF) {
+                    containsEmoji = YES;
+                }
+                if (0xFE00 <= uc && uc <= 0xFE0F) {
+                    containsEmoji = YES;
+                }
+                if (0x1F900 <= uc && uc <= 0x1F9FF) {
+                    containsEmoji = YES;
+                }
+                if (0x1F1E6 <= uc && uc <= 0x1F1FF) {
+                    containsEmoji = YES;
+                }
+            }
+        } else if (substring.length > 1) {
+            const unichar ls = [substring characterAtIndex:1];
+            if (ls == 0x20e3 ||
+                ls == 0xfe0f ||
+                ls == 0xd83c)
+            {
+                containsEmoji = YES;
+            }
+
+        }
          else
          {
              // non surrogate
@@ -196,30 +214,48 @@
          BOOL containsEmoji = NO;
          const unichar hs = [substring characterAtIndex:0];
          // surrogate pair
-         if (0xd800 <= hs &&
-             hs <= 0xdbff)
-         {
-             if (substring.length > 1)
-             {
-                 const unichar ls = [substring characterAtIndex:1];
-                 const int uc = ((hs - 0xd800) * 0x400) + (ls - 0xdc00) + 0x10000;
-                 if (0x1d000 <= uc &&
-                     uc <= 0x1f9c0)
-                 {
-                     containsEmoji = YES;
-                 }
-             }
-         }
-         else if (substring.length > 1)
-         {
-             const unichar ls = [substring characterAtIndex:1];
-             if (ls == 0x20e3 ||
-                 ls == 0xfe0f ||
-                 ls == 0xd83c)
-             {
-                 containsEmoji = YES;
-             }
-         }
+        if (0xd800 <= hs && hs <= 0xdbff) {
+            if (substring.length > 1) {
+                const unichar ls = [substring characterAtIndex:1];
+                const int uc = ((hs - 0xd800) * 0x400) + (ls - 0xdc00) + 0x10000;
+                if (0x1d000 <= uc && uc <= 0x1f77f) {
+                    containsEmoji = YES;
+                }
+                if (0x1F600 <= uc && uc <= 0x1F64F) {
+                    containsEmoji = YES;
+                }
+                if (0x1F300 <= uc && uc <= 0x1F5FF) {
+                    containsEmoji = YES;
+                }
+                if (0x1F680 <= uc && uc <= 0x1F6FF) {
+                    containsEmoji = YES;
+                }
+                if (0x2600 <= uc && uc <= 0x26FF) {
+                    containsEmoji = YES;
+                }
+                if (0x2700 <= uc && uc <= 0x27BF) {
+                    containsEmoji = YES;
+                }
+                if (0xFE00 <= uc && uc <= 0xFE0F) {
+                    containsEmoji = YES;
+                }
+                if (0x1F900 <= uc && uc <= 0x1F9FF) {
+                    containsEmoji = YES;
+                }
+                if (0x1F1E6 <= uc && uc <= 0x1F1FF) {
+                    containsEmoji = YES;
+                }
+            }
+        } else if (substring.length > 1) {
+            const unichar ls = [substring characterAtIndex:1];
+            if (ls == 0x20e3 ||
+                ls == 0xfe0f ||
+                ls == 0xd83c)
+            {
+                containsEmoji = YES;
+            }
+
+        }
          else
          {
              // non surrogate
